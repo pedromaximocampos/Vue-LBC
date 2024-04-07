@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+
+  </head>
+  <body>
+    <header>
+      <h1>Vue Course Goals</h1>
+    </header>
+    <section id="user-goal">
+
+      <!--A diretiva v-html renderiza o valor de "cardTitle" como HTML puro,
+         não como texto plano. o uso de v-html pode ser arriscado, pois permite a inserção de HTML puro.
+          Se você estiver inserindo HTML que foi de alguma forma fornecido ou modificado pelo usuário,
+           esteja ciente do risco de ataque de Cross-Site Scripting (XSS).-->
+      <h2 v-html="cardTitle"></h2>
+
+      <!--As chaves duplas {{ }} permite que o Vue exiba dinamicamente os dados no template.
+        "randomGoal()" é um método definido na instância Vue.-->
+      <p>{{ randomGoal() }}</p>
+
+      <!--A diretiva v-bind permite que você crie atributos HTML dinâmicos.
+        Neste caso, você está vinculando o atributo "href" à propriedade "vueLink" da instância Vue.-->
+      <p>Learn more <a v-bind:href="vueLink" target="_blank">about Vue</a></p>
+
+    </section>
+    <script src="https://unpkg.com/vue@3.4.9/dist/vue.global.js" defer></script>
+    <script src="app.js" defer></script>
+
+  </body>
+</html>

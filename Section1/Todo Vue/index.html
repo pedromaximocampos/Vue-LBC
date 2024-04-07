@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A First App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<!-- Vue.js instancia um novo aplicativo dentro deste elemento 'div' com ID 'app'  -->
+<div id="app">
+  <div>
+    <label for="goal">Goal</label>
+    <!-- A diretiva 'v-model' no Vue.js cria uma ligação bidirecional entre o elemento de entrada e o estado do aplicativo `enteredValue`. -->
+    <input type="text" id="goal" v-model="enteredValue" />
+    <!-- A diretiva 'v-on' no Vue.js adiciona um ouvinte de evento ao botão. Quando o botão é clicado, o método de 'addGoal' é acionado. -->
+    <button v-on:click="addGoal">Add Goal</button>
+  </div>
+  <ul>
+    <!-- A diretiva 'v-for' no Vue.js é usada para criar uma lista de repetição. Isso repetirá o elemento 'li' para cada 'goal' em nossa array 'goals'. -->
+    <li v-for="goal in goals">{{ goal }}</li>
+  </ul>
+</div>
+<!-- Aqui estamos incluindo a biblioteca Vue.js de um CDN -->
+<script src="https://unpkg.com/vue@next"></script>
+<!-- O arquivo JavaScript 'app.js' é onde inicializamos nossa aplicação Vue.js e definimos nosso estado e métodos -->
+<script src="app.js"></script>
+</body>
+</html>
