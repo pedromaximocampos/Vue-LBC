@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+
+  </head>
+  <body>
+    <header>
+      <h1>Vue Dynamic Styling</h1>
+    </header>
+    <section id="styling">
+      <!--
+      Estas são as divs que estão sendo gerenciadas pelo Vue.js.
+      Cada div tem uma classe "demo" e tem uma classe condicional "selected" que só será aplicada se a respectiva propriedade boxXSelected (X sendo A, B ou C) for true na instância do vue.
+      A diretiva @click é usada para vincular uma função de manipulação de clique ao elemento, neste caso, a função "toggleStyle()".
+      Podendo ser feito tambem por computed proprieties como visto na primeira div (boa pratica). E tambem passando array como visto
+      no exemplo da segunda div.
+      -->
+      <div class="demo" :class="boxAClasses" @click="toggleStyle('A')"></div>
+      <div :class="['demo',{selected: boxBSelected}]" @click="toggleStyle('B')"></div>
+      <div class="demo" :class="{selected: boxCSelected}" @click="toggleStyle('C')"></div>
+    </section>
+    <script src="https://unpkg.com/vue@3.4.9/dist/vue.global.js" defer></script>
+    <script src="app.js" defer></script>
+  </body>
+</html>
