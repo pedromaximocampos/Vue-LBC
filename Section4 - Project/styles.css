@@ -92,6 +92,20 @@ button:disabled {
   cursor: not-allowed;
 }
 
+.disabled-button {
+  background-color: #ccc;
+  border-color: #ccc;
+  box-shadow: none;
+  color: #3f3f3f;
+  cursor: not-allowed;
+}
+.hidden{
+  display: none;
+}
+.visible{
+  display: block;
+}
+
 #log ul {
   list-style: none;
   margin: 0;

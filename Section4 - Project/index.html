@@ -9,8 +9,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <script src="https://unpkg.com/vue@next" defer></script>
-    <script src="app.js" defer></script>
   </head>
   <body>
     <header>
@@ -20,25 +18,35 @@
       <section id="monster" class="container">
         <h2>Monster Health</h2>
         <div class="healthbar">
-          <div class="healthbar__value" v-model="monsterHealth"></div>
+          <div class="healthbar__value" v-model="monsterHealth" :style="monsterHealthBar"></div>
         </div>
       </section>
       <section id="player" class="container">
         <h2>Your Health</h2>
         <div class="healthbar">
-          <div class="healthbar__value" v-model="playerHealth"></div>
+          <div class="healthbar__value" v-model="playerHealth" :style="playerHealthBar"></div>
         </div>
       </section>
+      <section class="container" :class="showWinner">
+        <h2>Game Over !</h2>
+        <h3>Winner:{{ winner }}</h3>
+        <button @click="restartGame">Restart Game</button>
+      </section>
       <section id="controls">
-        <button @click="attack">ATTACK</button>
-        <button @click="special_attack">SPECIAL ATTACK </button>
-        <button @click="heal">HEAL</button>
+        <button @click="attack" >ATTACK</button>
+        <button @click="specialAttack"  :disabled="specialTimeout">SPECIAL ATTACK </button>
+        <button @click="heal"  :disabled="healTimeout">HEAL</button>
         <button @click="surrender">SURRENDER</button>
       </section>
       <section id="log" class="container">
         <h2>Battle Log</h2>
-        <ul></ul>
+        <p v-if="gameLogs.length === 0"><strong> Not logs yet, start a new game!</strong></p>
+        <ul v-else>
+          <li v-for="(value,key) in gameLogs">{{ value.action }}, value: <strong>{{ value.value }}</strong> </li>
+        </ul>
       </section>
     </div>
+    <script src="https://unpkg.com/vue@3.4.9/dist/vue.global.js" defer></script>
+    <script src="app.js" defer></script>
   </body>
 </html>
