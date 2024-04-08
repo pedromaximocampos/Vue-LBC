@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue Basics</title>
+
+  <!-- Link para a fonte externa do Google Fonts e seu CSS. -->
+  <link
+          href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+          rel="stylesheet"
+  />
+  <!-- Importando o arquivo de estilos CSS externo. -->
+  <link rel="stylesheet" href="styles.css" />
+
+</head>
+<body>
+<header>
+  <h1>Vue Course Goals</h1>
+</header>
+
+<!-- Aqui começa a seção que a aplicação Vue irá controlar. -->
+<section id="user-goals">
+
+  <h2>My course goals</h2>
+
+  <!-- O v-model atualiza a propriedade 'enteredValue' a cada evento de input. -->
+  <input type="text" v-model="enteredValue"/>
+
+  <!-- @click é um ouvinte de evento que executa o método 'addGoal' quando o botão é clicado. -->
+  <button @click="addGoal()">Add Goal</button>
+
+  <!-- v-if verifica se a condição é verdadeira. Se for, o elemento é renderizado. -->
+  <p v-if="goals.length===0">No goals have been added yet - please start adding some!</p>
+
+  <!-- v-else, uma diretiva condicional que só é avaliada se as condições v-if e v-else-if anteriores forem falsas. -->
+  <!-- Aqui, o v-else está sendo usado para renderizar uma lista apenas se houver metas/goals. -->
+  <!-- v-for é usado para renderizar uma lista de itens com base nos dados do array 'goals'. -->
+  <!-- :key é usado para rastrear os nós única e eficientemente quando eles são alterados. -->
+  <ul v-else >
+    <li v-for="(goal, index) in goals" :key="goal" @click="removeGoal(index)">
+      {{ index+1 }} -  {{ goal }}
+    </li>
+  </ul>
+
+  <!-- Este ul está utilizando v-for para percorrer um objeto e exibir suas chaves e valores. -->
+
+  <ul v-else >
+    <li v-for="(value, key) in {name: 'pedro', age:21}" :key="key">
+      {{ key }} -  {{ value }}
+    </li>
+  </ul>
+
+</section>
+
+<!-- Importando o Vue.js e o arquivo de script da sua aplicação. -->
+<!-- A propriedade 'defer' atrasa a execução do script até que a página tenha terminado de carregar. -->
+<script src="https://unpkg.com/vue@3.4.9/dist/vue.global.js" defer></script>
+<script src="app.js" defer></script>
+</body>
+</html>
