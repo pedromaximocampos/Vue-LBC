@@ -1,0 +1,29 @@
+  methods:{
+    loadTeam(route){
+      const teamId = route.params.teamId;
+      const selectedTeam = this.teams.find(team => team.id === teamId);
+      for (const memberId of selectedTeam.members){
+        const selectedUser = this.users.find((user) => user.id === memberId)
+        this.members.push(selectedUser)
+      }
+      this.teamName = selectedTeam.name;
+    }
+  },
+  created(){
+    this.loadTeam(this.$route);
+  },
+  watch:{
+    $route(newRoute){
+      this.loadTeam(newRoute)
+    }
+  }
+};
+
+
+usar isso quando formos mudar a rota para acessar cada posto
+usar tambem a destribuição item member list
+
+
+No qual lis engloba com uma ul os member passando as propriedades e o member faz o display
+dessas propriedades com li podendo englobar em li outros items passando as propriedades
+olhar a section 13

@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import TheHeader from "@/components/layout/TheHeader.vue";
+import TheHeader from "@/components/Layout/TheHeader.vue";
 // import BadgeList from "@/components/BadgeList.vue";
 // import UserInfo from "@/components/UserInfo.vue";
 // import Goals from "@/components/Goals.vue";
