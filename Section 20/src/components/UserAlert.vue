@@ -10,6 +10,7 @@
     <menu>
       <button @click="closeDialog">Close</button>
     </menu>
+    <button></button>
   </dialog>
 </template>
 
